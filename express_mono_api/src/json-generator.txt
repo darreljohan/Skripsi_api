@@ -1,0 +1,22 @@
+[
+  '{{repeat(19, 20)}}',
+  {
+    id: '{{integer(700000, 799999)}}',
+    name: function(tags){
+      return "asset_"+this.id;
+    },
+    date_owned: '{{date(new Date(2018, 0, 1), new Date(2024, 0, 1), "YYYY-MM-ddThh:mm:ssZ")}}',
+    price_owned: '{{integer([10000], [50000])}}',
+    location: function(tags){
+      return "location_"+this.id;
+    },
+    categories: {
+    connect: [
+      '{{repeat(0, 3)}}',
+      {
+        id: '{{integer(100001, 100003)}}'
+      }
+        ]
+    }
+  }
+]
