@@ -171,8 +171,8 @@ export class AssetFormattedService {
     if (searchRequest.price_owned_lower && searchRequest.price_owned_upper) {
       filter.push({
         price_owned: {
-          gte: new Date(searchRequest.price_owned_lower),
-          lte: new Date(searchRequest.price_owned_upper),
+          gte: searchRequest.price_owned_lower,
+          lte: searchRequest.price_owned_upper,
         },
       });
     } else if (searchRequest.price_owned_lower) {

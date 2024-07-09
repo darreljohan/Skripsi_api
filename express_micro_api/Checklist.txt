@@ -1,0 +1,21 @@
+CHECK LIST
+
+Node Package
+npx tsc --init
+tsconfig.json
+babel.config.json
+.env
+npx prisma init
+copy related prisma scheme
+npx prisma migrate dev --name init
+copy model
+copy validation
+copy application : database logger web
+copy service
+Create new User type 
+Create User Request interface
+Create AuthMiddleware
+copy error interface
+copy router
+set up port
+copr test

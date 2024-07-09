@@ -8,3 +8,8 @@ web.use(express.json());
 web.use(publicRouter);
 web.use(apiRouter);
 web.use(errorMiddleware);
+
+var port = process.env.MONO_PORT;
+web.listen(port, function () {
+  console.log("Example app listening on port " + port + "!");
+});

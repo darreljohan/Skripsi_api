@@ -1,0 +1,22 @@
+[
+  '{{repeat(29, 30)}}',
+  {
+    id: '{{integer(600000, 699999)}}',
+    title: function(tags){
+      return "title_"+this.id;
+    },
+    uploadDate: '{{date(new Date(2018, 0, 1), new Date(2024, 0, 1), "YYYY-MM-ddThh:mm:ssZ")}}',
+    description: function(tags){
+      return "description_"+this.id;
+    },
+    tags: {
+    connect: [
+      '{{repeat(0, 3)}}',
+      {
+        id: '{{integer(100001, 100003)}}'
+      }
+        ]
+    },
+    author: "AUTO_GENERATED"
+  }
+]

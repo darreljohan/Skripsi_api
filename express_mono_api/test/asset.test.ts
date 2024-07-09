@@ -33,7 +33,7 @@ describe("POST /api/assets/format", () => {
       .send({ asset: { name: "test_asset" } })
       .set("X-API-TOKEN", "test");
 
-    logger.debug(response.body);
+    logger.debug(response);
     expect(response.status).toBe(200);
     expect(response.body.data.asset.name).toBe("test_asset");
 

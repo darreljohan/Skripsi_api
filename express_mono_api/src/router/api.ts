@@ -1,10 +1,10 @@
 import express from "express";
 import { authMiddleware } from "../middleware/auth.middleware";
 import { UserController } from "../controller/user.controller";
-import { AssetController } from "../controller/asset.controller";
 import { AssetFormatController } from "../controller/asset.format.controller";
 import { upload } from "../application/multer";
 import { fileController } from "../controller/file.controller";
+import { NewsController } from "../controller/news.controller";
 
 export const apiRouter = express.Router();
 
@@ -23,3 +23,7 @@ apiRouter.get("/api/search", AssetFormatController.search);
 apiRouter.post("/api/file", upload.single("file"), fileController.upload);
 apiRouter.get("/api/file/:filename", fileController.get);
 apiRouter.delete("/api/file", fileController.delete);
+
+apiRouter.post("/api/news", NewsController.create);
+apiRouter.get("/api/news/search", NewsController.search);
+apiRouter.delete("/api/news/:id", NewsController.delete);

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1717135798797" clover="3.2.0">
-  <project timestamp="1717135798797" name="All files">
-    <metrics statements="236" coveredstatements="56" conditionals="68" coveredconditionals="3" methods="54" coveredmethods="9" elements="358" coveredelements="68" complexity="0" loc="236" ncloc="236" packages="10" files="24" classes="24"/>
+<coverage generated="1720258641780" clover="3.2.0">
+  <project timestamp="1720258641780" name="All files">
+    <metrics statements="296" coveredstatements="68" conditionals="82" coveredconditionals="4" methods="68" coveredmethods="11" elements="446" coveredelements="83" complexity="0" loc="296" ncloc="296" packages="10" files="28" classes="28"/>
     <package name="src.application">
-      <metrics statements="19" coveredstatements="10" conditionals="6" coveredconditionals="0" methods="3" coveredmethods="0"/>
+      <metrics statements="23" coveredstatements="13" conditionals="6" coveredconditionals="0" methods="4" coveredmethods="1"/>
       <file name="database.ts" path="C:\src\Nest_Skripsi\express_mono_api\src\application\database.ts">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="4" count="1" type="stmt"/>
@@ -13,7 +13,7 @@
         <line num="3" count="1" type="stmt"/>
       </file>
       <file name="multer.ts" path="C:\src\Nest_Skripsi\express_mono_api\src\application\multer.ts">
-        <metrics statements="12" coveredstatements="3" conditionals="6" coveredconditionals="0" methods="3" coveredmethods="0"/>
+        <metrics statements="13" coveredstatements="3" conditionals="6" coveredconditionals="0" methods="3" coveredmethods="0"/>
         <line num="10" count="1" type="stmt"/>
         <line num="16" count="0" type="stmt"/>
         <line num="17" count="0" type="stmt"/>
@@ -21,30 +21,34 @@
         <line num="25" count="0" type="stmt"/>
         <line num="29" count="1" type="stmt"/>
         <line num="34" count="0" type="stmt"/>
-        <line num="35" count="0" type="cond" truecount="0" falsecount="6"/>
-        <line num="36" count="0" type="stmt"/>
-        <line num="38" count="0" type="stmt"/>
+        <line num="35" count="0" type="stmt"/>
+        <line num="36" count="0" type="cond" truecount="0" falsecount="6"/>
+        <line num="37" count="0" type="stmt"/>
         <line num="39" count="0" type="stmt"/>
-        <line num="42" count="1" type="stmt"/>
+        <line num="40" count="0" type="stmt"/>
+        <line num="43" count="1" type="stmt"/>
       </file>
       <file name="web.ts" path="C:\src\Nest_Skripsi\express_mono_api\src\application\web.ts">
-        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="6" count="1" type="stmt"/>
         <line num="7" count="1" type="stmt"/>
         <line num="8" count="1" type="stmt"/>
         <line num="9" count="1" type="stmt"/>
         <line num="10" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
       </file>
     </package>
     <package name="src.controller">
-      <metrics statements="61" coveredstatements="4" conditionals="2" coveredconditionals="0" methods="13" coveredmethods="1"/>
+      <metrics statements="75" coveredstatements="4" conditionals="2" coveredconditionals="0" methods="16" coveredmethods="1"/>
       <file name="asset.format.controller.ts" path="C:\src\Nest_Skripsi\express_mono_api\src\controller\asset.format.controller.ts">
         <metrics statements="23" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="1"/>
         <line num="11" count="1" type="stmt"/>
         <line num="12" count="1" type="stmt"/>
         <line num="13" count="1" type="stmt"/>
-        <line num="14" count="0" type="stmt"/>
-        <line num="16" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
         <line num="21" count="0" type="stmt"/>
         <line num="22" count="0" type="stmt"/>
         <line num="26" count="0" type="stmt"/>
@@ -81,6 +85,23 @@
         <line num="39" count="0" type="stmt"/>
         <line num="40" count="0" type="stmt"/>
         <line num="42" count="0" type="stmt"/>
+      </file>
+      <file name="news.controller.ts" path="C:\src\Nest_Skripsi\express_mono_api\src\controller\news.controller.ts">
+        <metrics statements="14" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="25" count="0" type="stmt"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="31" count="0" type="stmt"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="34" count="0" type="stmt"/>
       </file>
       <file name="user.controller.ts" path="C:\src\Nest_Skripsi\express_mono_api\src\controller\user.controller.ts">
         <metrics statements="23" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="0"/>
@@ -121,7 +142,7 @@
       </file>
     </package>
     <package name="src.middleware">
-      <metrics statements="23" coveredstatements="12" conditionals="12" coveredconditionals="3" methods="3" coveredmethods="2"/>
+      <metrics statements="23" coveredstatements="10" conditionals="12" coveredconditionals="2" methods="3" coveredmethods="1"/>
       <file name="auth.middleware.ts" path="C:\src\Nest_Skripsi\express_mono_api\src\middleware\auth.middleware.ts">
         <metrics statements="10" coveredstatements="9" conditionals="4" coveredconditionals="2" methods="1" coveredmethods="1"/>
         <line num="6" count="1" type="stmt"/>
@@ -136,10 +157,10 @@
         <line num="24" count="0" type="stmt"/>
       </file>
       <file name="error.middleware.ts" path="C:\src\Nest_Skripsi\express_mono_api\src\middleware\error.middleware.ts">
-        <metrics statements="13" coveredstatements="3" conditionals="8" coveredconditionals="1" methods="2" coveredmethods="1"/>
+        <metrics statements="13" coveredstatements="1" conditionals="8" coveredconditionals="0" methods="2" coveredmethods="0"/>
         <line num="12" count="1" type="stmt"/>
-        <line num="18" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="19" count="1" type="stmt"/>
+        <line num="18" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="19" count="0" type="stmt"/>
         <line num="23" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="24" count="0" type="stmt"/>
         <line num="28" count="0" type="cond" truecount="0" falsecount="2"/>
@@ -153,13 +174,18 @@
       </file>
     </package>
     <package name="src.model">
-      <metrics statements="9" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="8" coveredmethods="0"/>
+      <metrics statements="11" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="9" coveredmethods="1"/>
       <file name="asset.format.model.ts" path="C:\src\Nest_Skripsi\express_mono_api\src\model\asset.format.model.ts">
-        <metrics statements="4" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
+        <metrics statements="4" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1"/>
         <line num="8" count="1" type="stmt"/>
-        <line num="18" count="0" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
         <line num="36" count="1" type="stmt"/>
         <line num="46" count="0" type="stmt"/>
+      </file>
+      <file name="news.model.ts" path="C:\src\Nest_Skripsi\express_mono_api\src\model\news.model.ts">
+        <metrics statements="2" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
       </file>
       <file name="user.model.ts" path="C:\src\Nest_Skripsi\express_mono_api\src\model\user.model.ts">
         <metrics statements="5" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="0"/>
@@ -171,9 +197,9 @@
       </file>
     </package>
     <package name="src.router">
-      <metrics statements="16" coveredstatements="16" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <metrics statements="19" coveredstatements="19" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="api.ts" path="C:\src\Nest_Skripsi\express_mono_api\src\router\api.ts">
-        <metrics statements="13" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <metrics statements="16" coveredstatements="16" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="9" count="1" type="stmt"/>
         <line num="11" count="1" type="stmt"/>
         <line num="13" count="1" type="stmt"/>
@@ -187,6 +213,9 @@
         <line num="23" count="1" type="stmt"/>
         <line num="24" count="1" type="stmt"/>
         <line num="25" count="1" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="28" count="1" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
       </file>
       <file name="public.api.ts" path="C:\src\Nest_Skripsi\express_mono_api\src\router\public.api.ts">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -196,13 +225,13 @@
       </file>
     </package>
     <package name="src.service">
-      <metrics statements="86" coveredstatements="1" conditionals="44" coveredconditionals="0" methods="16" coveredmethods="1"/>
+      <metrics statements="113" coveredstatements="3" conditionals="58" coveredconditionals="2" methods="20" coveredmethods="1"/>
       <file name="asset.format.service.ts" path="C:\src\Nest_Skripsi\express_mono_api\src\service\asset.format.service.ts">
-        <metrics statements="46" coveredstatements="1" conditionals="32" coveredconditionals="0" methods="7" coveredmethods="1"/>
+        <metrics statements="46" coveredstatements="3" conditionals="32" coveredconditionals="2" methods="7" coveredmethods="1"/>
         <line num="24" count="1" type="stmt"/>
-        <line num="30" count="0" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
         <line num="40" count="0" type="stmt"/>
-        <line num="48" count="0" type="stmt"/>
+        <line num="48" count="1" type="stmt"/>
         <line num="52" count="0" type="stmt"/>
         <line num="53" count="0" type="stmt"/>
         <line num="58" count="0" type="cond" truecount="0" falsecount="2"/>
@@ -266,6 +295,36 @@
         <line num="82" count="0" type="stmt"/>
         <line num="84" count="0" type="stmt"/>
       </file>
+      <file name="news.service.ts" path="C:\src\Nest_Skripsi\express_mono_api\src\service\news.service.ts">
+        <metrics statements="27" coveredstatements="0" conditionals="14" coveredconditionals="0" methods="4" coveredmethods="0"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="25" count="0" type="stmt"/>
+        <line num="38" count="0" type="stmt"/>
+        <line num="40" count="0" type="stmt"/>
+        <line num="47" count="0" type="stmt"/>
+        <line num="53" count="0" type="stmt"/>
+        <line num="54" count="0" type="stmt"/>
+        <line num="55" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="56" count="0" type="stmt"/>
+        <line num="59" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="60" count="0" type="stmt"/>
+        <line num="69" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="70" count="0" type="stmt"/>
+        <line num="76" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="77" count="0" type="stmt"/>
+        <line num="82" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="83" count="0" type="stmt"/>
+        <line num="90" count="0" type="stmt"/>
+        <line num="97" count="0" type="stmt"/>
+        <line num="101" count="0" type="stmt"/>
+        <line num="102" count="0" type="stmt"/>
+        <line num="116" count="0" type="stmt"/>
+        <line num="119" count="0" type="stmt"/>
+        <line num="122" count="0" type="stmt"/>
+        <line num="127" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="128" count="0" type="stmt"/>
+        <line num="131" count="0" type="stmt"/>
+      </file>
       <file name="user.service.ts" path="C:\src\Nest_Skripsi\express_mono_api\src\service\user.service.ts">
         <metrics statements="23" coveredstatements="0" conditionals="8" coveredconditionals="0" methods="5" coveredmethods="0"/>
         <line num="28" count="0" type="stmt"/>
@@ -303,12 +362,18 @@
       </file>
     </package>
     <package name="src.validation">
-      <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
       <file name="asset.format.validation.ts" path="C:\src\Nest_Skripsi\express_mono_api\src\validation\asset.format.validation.ts">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="4" count="1" type="stmt"/>
         <line num="32" count="1" type="stmt"/>
         <line num="53" count="1" type="stmt"/>
+      </file>
+      <file name="news.validation.ts" path="C:\src\Nest_Skripsi\express_mono_api\src\validation\news.validation.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
       </file>
       <file name="user.validation.ts" path="C:\src\Nest_Skripsi\express_mono_api\src\validation\user.validation.ts">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -322,13 +387,20 @@
       </file>
     </package>
     <package name="test">
-      <metrics statements="10" coveredstatements="4" conditionals="2" coveredconditionals="0" methods="7" coveredmethods="4"/>
+      <metrics statements="17" coveredstatements="5" conditionals="2" coveredconditionals="0" methods="12" coveredmethods="5"/>
       <file name="asset.test.util.ts" path="C:\src\Nest_Skripsi\express_mono_api\test\asset.test.util.ts">
-        <metrics statements="4" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="2"/>
+        <metrics statements="11" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="9" coveredmethods="3"/>
         <line num="7" count="1" type="stmt"/>
         <line num="28" count="1" type="stmt"/>
         <line num="43" count="0" type="stmt"/>
-        <line num="55" count="0" type="stmt"/>
+        <line num="55" count="1" type="stmt"/>
+        <line num="63" count="0" type="stmt"/>
+        <line num="71" count="0" type="stmt"/>
+        <line num="73" count="0" type="stmt"/>
+        <line num="80" count="0" type="stmt"/>
+        <line num="84" count="0" type="stmt"/>
+        <line num="86" count="0" type="stmt"/>
+        <line num="93" count="0" type="stmt"/>
       </file>
       <file name="user.test.util.ts" path="C:\src\Nest_Skripsi\express_mono_api\test\user.test.util.ts">
         <metrics statements="6" coveredstatements="2" conditionals="2" coveredconditionals="0" methods="3" coveredmethods="2"/>

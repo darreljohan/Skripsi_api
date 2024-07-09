@@ -43,14 +43,13 @@ Deleting picture from server and disconnect from asset record based on asset id 
 
 Endpoint : DELETE /api/file
 
-Request Body :x
+Request Body :
 
 ```json
 {
   "id": "number",
   "picture": {
     "id": "number",
-    "url": "string"
   }
 }
 ```

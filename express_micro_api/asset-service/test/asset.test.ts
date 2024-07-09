@@ -12,35 +12,32 @@ import { logger } from "../src/application/logger";
 import supertest from "supertest";
 import { web } from "../src/application/web";
 import { UserTest } from "./user.test.util";
-import { AssetTest } from "./asset.format.test.util";
-import exp from "node:constants";
+import { assetTest } from "./asset.test.util";
+import { afterThis } from "jest-after-this";
+import { userInfo } from "os";
+import { date } from "zod";
 
 describe("POST /api/assets/format", () => {
   beforeAll(async () => {
-    UserTest.create();
+    await assetTest.createSingleMock();
   });
 
   afterAll(async () => {
-    UserTest.delete();
+    await assetTest.deleteSingleMock();
   });
-
-  beforeEach(async () => {
-    await AssetTest.create();
-  });
-
-  afterEach(async () => {
-    await AssetTest.delete();
-  });
-
-  it("should return created asset", async () => {
+  it("should return asset", async () => {
     const response = await supertest(web)
       .post("/api/assets/format")
       .send({ asset: { name: "test_asset" } })
-      .set("X-API-TOKEN", "test");
+      .set("user", "ssn");
 
-    logger.debug(response.body);
+    logger.debug(response);
     expect(response.status).toBe(200);
     expect(response.body.data.asset.name).toBe("test_asset");
+
+    afterThis(() => {
+      assetTest.deleteDataById(response.body.data.asset.id);
+    });
   });
 
   it("should return created asset with mapped categories", async () => {
@@ -66,6 +63,9 @@ describe("POST /api/assets/format", () => {
         description: "test_desc",
       },
     ]);
+    afterThis(() => {
+      assetTest.deleteDataById(response.body.data.asset.id);
+    });
   });
 
   it("should not accept because invalid category id", async () => {
@@ -121,20 +121,15 @@ describe("POST /api/assets/format", () => {
 
 describe("GET /api/assets/format", () => {
   beforeAll(async () => {
-    UserTest.create();
+    await UserTest.create();
+    await assetTest.createSingleMock();
   });
 
   afterAll(async () => {
-    UserTest.delete();
+    await UserTest.delete();
+    await assetTest.deleteSingleMock();
   });
 
-  beforeEach(async () => {
-    await AssetTest.create();
-  });
-
-  afterEach(async () => {
-    await AssetTest.delete();
-  });
   it("should return test asset", async () => {
     const response = await supertest(web)
       .get("/api/assets/format/10000")
@@ -169,19 +164,19 @@ describe("GET /api/assets/format", () => {
 
 describe("PATCH /api/assets/format", () => {
   beforeAll(async () => {
-    UserTest.create();
+    await UserTest.create();
   });
 
   afterAll(async () => {
-    UserTest.delete();
+    await UserTest.delete();
   });
 
   beforeEach(async () => {
-    await AssetTest.create();
+    await assetTest.createSingleMock();
   });
 
   afterEach(async () => {
-    await AssetTest.delete();
+    await assetTest.deleteSingleMock();
   });
 
   it("should patch test asset, no category included", async () => {
@@ -255,20 +250,21 @@ describe("PATCH /api/assets/format", () => {
 
 describe("DELETE /api/assets/format", () => {
   beforeAll(async () => {
-    UserTest.create();
+    await UserTest.create();
   });
 
   afterAll(async () => {
-    UserTest.delete();
+    await UserTest.delete();
   });
 
   beforeEach(async () => {
-    await AssetTest.create();
+    await assetTest.createSingleMock();
   });
 
   afterEach(async () => {
-    await AssetTest.delete();
+    await assetTest.deleteSingleMock();
   });
+
   it("should delete asset based on parameter", async () => {
     const response = await supertest(web)
       .delete("/api/assets/format/10000")
@@ -302,13 +298,13 @@ describe("DELETE /api/assets/format", () => {
 
 describe("SEARCH /api/assets/format", () => {
   beforeAll(async () => {
-    UserTest.create();
-    await AssetTest.buildSearchData();
+    await UserTest.create();
+    await assetTest.createMassMock();
   });
 
   afterAll(async () => {
-    UserTest.delete();
-    await AssetTest.deleteSearchData();
+    await UserTest.delete();
+    await assetTest.deleteMassMock();
   });
 
   it("Should return asset price more than 3000", async () => {
@@ -319,6 +315,10 @@ describe("SEARCH /api/assets/format", () => {
 
     logger.info(response.body);
     expect(response.status).toBe(200);
+
+    response.body.data.forEach((record) => {
+      expect(record.asset.price_owned).toBeGreaterThanOrEqual(3000);
+    });
   });
 
   it("Should return asset price less than 4000", async () => {
@@ -329,26 +329,41 @@ describe("SEARCH /api/assets/format", () => {
 
     logger.info(response.body);
     expect(response.status).toBe(200);
+
+    response.body.data.forEach((record) => {
+      expect(record.asset.price_owned).toBeLessThanOrEqual(4000);
+    });
   });
 
   it("Should return asset date owned older than 2020", async () => {
+    const dateLimit = new Date(2020, 1, 1);
     const response = await supertest(web)
       .get("/api/search")
       .set("X-API-TOKEN", "test")
-      .send({ date_owned_upper: new Date(2020, 1, 1), page: 1, size: 10 });
+      .send({ date_owned_upper: dateLimit, page: 1, size: 10 });
 
     logger.info(response.body);
     expect(response.status).toBe(200);
+
+    response.body.data.forEach((record) => {
+      const recordDate = new Date(record.asset.date_owned);
+      expect(recordDate.getTime()).toBeLessThanOrEqual(dateLimit.getTime());
+    });
   });
 
   it("Should return asset date owned newer than 2020", async () => {
+    const dateLimit = new Date(2020, 1, 1);
     const response = await supertest(web)
       .get("/api/search")
       .set("X-API-TOKEN", "test")
-      .send({ date_owned_lower: new Date(2020, 1, 1), page: 1, size: 10 });
+      .send({ date_owned_lower: dateLimit, page: 1, size: 10 });
 
     logger.info(response.body);
     expect(response.status).toBe(200);
+    response.body.data.forEach((record) => {
+      const recordDate = new Date(record.asset.date_owned);
+      expect(recordDate.getTime()).toBeGreaterThanOrEqual(dateLimit.getTime());
+    });
   });
 
   it("Should return asset with 1000001 category id", async () => {
@@ -359,6 +374,11 @@ describe("SEARCH /api/assets/format", () => {
 
     logger.info(response.body);
     expect(response.status).toBe(200);
+    response.body.data.forEach((record) => {
+      expect(record.categories).toContainEqual(
+        expect.objectContaining({ id: 100001 })
+      );
+    });
   });
 
   it("Should not return asset because invalid categories", async () => {
