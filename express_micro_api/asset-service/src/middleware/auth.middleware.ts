@@ -6,7 +6,7 @@ import { Validation } from "../validation/validation";
 import { UserValidationService } from "../validation/user.validation";
 
 //Middleware for converting header to User in UserRequest
-
+/*
 export const authMiddleware = async (
   req: UserRequest,
   res: Response,
@@ -28,9 +28,9 @@ export const authMiddleware = async (
     });
   }
 };
+*/
 
 //Middleware to bypass auth
-/*
 export const authMiddleware = async (
   req: UserRequest,
   res: Response,
@@ -44,4 +44,3 @@ export const authMiddleware = async (
   };
   next();
 };
-*/

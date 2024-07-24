@@ -11,6 +11,13 @@ export type fileUploadResponse = {
   pictures: AssetPicture[];
 };
 
+export type fileUploadServicerResponse = {
+  asset: {
+    id: number;
+  };
+  pictures: AssetPicture[];
+};
+
 export type filePreviewRequest = {
   url: string;
 };

@@ -60,4 +60,23 @@ export class AssetValidationService {
     page: z.number().min(1).max(100).default(1),
     size: z.number().min(1).max(100).default(10),
   });
+
+  static readonly ADD_PICTURE: ZodType = z.object({
+    asset: z.object({
+      id: z.string(),
+    }),
+    picture: z.object({
+      url: z.string(),
+    }),
+  });
+
+  static readonly DELETE_PICTURE: ZodType = z.object({
+    asset: z.object({
+      id: z.number().min(1),
+    }),
+    picture: z.object({
+      id: z.number(),
+      url: z.string().optional(),
+    }),
+  });
 }

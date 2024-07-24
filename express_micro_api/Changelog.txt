@@ -1,0 +1,7 @@
+Add new api service in asset service
+Change delete file response into
+    {id: number,
+    picture: {
+        id: number,
+        url: string
+    }}

@@ -17,13 +17,13 @@ export const authMiddleware = async (
       .status(401)
       .json({
         error: "Unauthorized access",
+        message: "token is not provided",
       })
       .end();
   }
 
   // Declare fetch configuration here - Fetch Auth API from user service
-  const authServiceUrl = process.env.USER_SERVICE_URL + "/api/users/auth";
-
+  const authServiceUrl = process.env.USER_SERVICE_URL + "/auth";
   //Fetch auth from user service
   axios
     .get<authResponse>(authServiceUrl, {
@@ -33,10 +33,12 @@ export const authMiddleware = async (
     })
     .then((result) => {
       req.user = result.data.data.user;
+      logger.info("pass auth");
       next();
       return;
     })
     .catch((error) => {
+      logger.info("GATEWAY MIDDLEWARE ERROR - REQ");
       res
         .status(401)
         .json({

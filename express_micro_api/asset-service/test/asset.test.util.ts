@@ -4,7 +4,7 @@ import assetJSON from "./asset.test.mock.json";
 
 export class assetTest {
   static async createSingleMock() {
-    await prismaClient.asset.create({
+    await prismaClient.Asset.create({
       data: {
         id: 10000,
         name: "test_asset",

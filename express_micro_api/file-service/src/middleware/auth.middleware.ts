@@ -1,5 +1,4 @@
 import { NextFunction, Request, Response } from "express";
-import { prismaClient } from "../application/database";
 import { UserRequest } from "../model/user.model";
 import { logger } from "../application/logger";
 import { Validation } from "../validation/validation";
@@ -34,6 +33,7 @@ export const authMiddleware = async (
 */
 
 //Middleware for converting header to User in UserRequest
+
 export const authMiddleware = async (
   req: UserRequest,
   res: Response,
@@ -55,3 +55,20 @@ export const authMiddleware = async (
     });
   }
 };
+
+//Middleware to bypass auth
+/*
+export const authMiddleware = async (
+  req: UserRequest,
+  res: Response,
+  next: NextFunction
+) => {
+  req.user = {
+    username: "tester",
+    name: "tester",
+    password: "test",
+    token: "tester",
+  };
+  next();
+};
+*/

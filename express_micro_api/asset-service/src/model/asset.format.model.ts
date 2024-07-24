@@ -74,3 +74,48 @@ export type searchAssetRequest = {
 };
 
 export function searchAssetBuilder(request: searchAssetRequest): any {}
+
+export type AddAssetPictureRequest = {
+  asset: {
+    id: string;
+  };
+  picture: {
+    url: string;
+  };
+};
+
+export type AddAssetPictureResponse = {
+  id: number;
+  pictures: AssetPicture[];
+};
+
+export type DeleteAssetPictureRequest = {
+  asset: {
+    id: number;
+  };
+  picture: {
+    id: number;
+    url?: string;
+  };
+};
+
+export type DeleteAssetPictureResponse = {
+  id: number;
+  picture: AssetPicture[];
+};
+
+export const assetWithPictures = Prisma.validator<Prisma.AssetDefaultArgs>()({
+  include: { pictures: true },
+});
+export type AssetWithPictures = Prisma.AssetGetPayload<
+  typeof assetWithPictures
+>;
+
+export function DeleteAssetPictureConverter(
+  result: AssetWithPictures
+): DeleteAssetPictureResponse {
+  return {
+    id: result.id,
+    picture: result.pictures,
+  };
+}

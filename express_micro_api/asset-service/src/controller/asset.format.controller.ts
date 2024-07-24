@@ -1,10 +1,13 @@
 import { NextFunction, Request, Response } from "express";
 import { UserRequest } from "../model/user.model";
 import {
+  AddAssetPictureRequest,
   CreateAssetRequest,
+  DeleteAssetPictureRequest,
   searchAssetRequest,
 } from "../model/asset.format.model";
 import { AssetFormattedService } from "../service/asset.format.service";
+import { logger } from "../application/logger";
 
 export class AssetFormatController {
   static async create(req: UserRequest, res: Response, next: NextFunction) {
@@ -56,6 +59,35 @@ export class AssetFormatController {
       const request: searchAssetRequest = req.body as searchAssetRequest;
       const response = await AssetFormattedService.search(req.user!, request);
       res.status(200).json(response);
+    } catch (e) {
+      next(e);
+    }
+  }
+
+  static async addPicture(req: UserRequest, res: Response, next: NextFunction) {
+    try {
+      logger.info("enter add picture function");
+      const response = await AssetFormattedService.addPicture(
+        req.user!,
+        req.body as AddAssetPictureRequest
+      );
+      res.status(200).json({ data: response });
+    } catch (e) {
+      next(e);
+    }
+  }
+
+  static async deletePicture(
+    req: UserRequest,
+    res: Response,
+    next: NextFunction
+  ) {
+    try {
+      const response = await AssetFormattedService.deletePicture(
+        req.user!,
+        req.body as DeleteAssetPictureRequest
+      );
+      res.status(200).json({ data: response });
     } catch (e) {
       next(e);
     }

@@ -17,6 +17,7 @@ import { afterThis } from "jest-after-this";
 import { userInfo } from "os";
 import { date } from "zod";
 
+//invalid token test won't passed because auth middeleware method provide bypass auth
 describe("POST /api/assets/format", () => {
   beforeAll(async () => {
     await assetTest.createSingleMock();
@@ -121,12 +122,12 @@ describe("POST /api/assets/format", () => {
 
 describe("GET /api/assets/format", () => {
   beforeAll(async () => {
-    await UserTest.create();
+    //await UserTest.create(); //deprecated since asset cannot access user db
     await assetTest.createSingleMock();
   });
 
   afterAll(async () => {
-    await UserTest.delete();
+    //await UserTest.delete();
     await assetTest.deleteSingleMock();
   });
 
@@ -164,11 +165,11 @@ describe("GET /api/assets/format", () => {
 
 describe("PATCH /api/assets/format", () => {
   beforeAll(async () => {
-    await UserTest.create();
+    //await UserTest.create();
   });
 
   afterAll(async () => {
-    await UserTest.delete();
+    //await UserTest.delete();
   });
 
   beforeEach(async () => {
@@ -250,11 +251,11 @@ describe("PATCH /api/assets/format", () => {
 
 describe("DELETE /api/assets/format", () => {
   beforeAll(async () => {
-    await UserTest.create();
+    //await UserTest.create();
   });
 
   afterAll(async () => {
-    await UserTest.delete();
+    //await UserTest.delete();
   });
 
   beforeEach(async () => {
@@ -298,12 +299,12 @@ describe("DELETE /api/assets/format", () => {
 
 describe("SEARCH /api/assets/format", () => {
   beforeAll(async () => {
-    await UserTest.create();
+    //await UserTest.create();
     await assetTest.createMassMock();
   });
 
   afterAll(async () => {
-    await UserTest.delete();
+    //await UserTest.delete();
     await assetTest.deleteMassMock();
   });
 

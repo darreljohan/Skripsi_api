@@ -1,0 +1,312 @@
+[
+  {
+    "id": 776043,
+    "name": "asset_776043",
+    "date_owned": "2022-04-26T12:01:52-07:00",
+    "price_owned": 38767,
+    "location": "location_776043",
+    "categories": {
+      "connect": [
+        {
+          "id": 100001
+        },
+        {
+          "id": 100002
+        }
+      ]
+    }
+  },
+  {
+    "id": 717426,
+    "name": "asset_717426",
+    "date_owned": "2020-04-22T06:08:13-07:00",
+    "price_owned": 46349,
+    "location": "location_717426",
+    "categories": {
+      "connect": [
+        {
+          "id": 100003
+        },
+        {
+          "id": 100003
+        },
+        {
+          "id": 100002
+        }
+      ]
+    }
+  },
+  {
+    "id": 760124,
+    "name": "asset_760124",
+    "date_owned": "2021-03-12T06:14:22-07:00",
+    "price_owned": 42559,
+    "location": "location_760124",
+    "categories": {
+      "connect": [
+        {
+          "id": 100003
+        },
+        {
+          "id": 100003
+        }
+      ]
+    }
+  },
+  {
+    "id": 753336,
+    "name": "asset_753336",
+    "date_owned": "2021-10-13T04:01:34-07:00",
+    "price_owned": 12258,
+    "location": "location_753336",
+    "categories": {
+      "connect": [
+        {
+          "id": 100002
+        },
+        {
+          "id": 100003
+        }
+      ]
+    }
+  },
+  {
+    "id": 718519,
+    "name": "asset_718519",
+    "date_owned": "2018-03-08T09:02:09-07:00",
+    "price_owned": 18442,
+    "location": "location_718519",
+    "categories": {
+      "connect": [
+        {
+          "id": 100002
+        }
+      ]
+    }
+  },
+  {
+    "id": 790156,
+    "name": "asset_790156",
+    "date_owned": "2021-01-10T12:21:42-07:00",
+    "price_owned": 11654,
+    "location": "location_790156",
+    "categories": {
+      "connect": [
+        {
+          "id": 100003
+        },
+        {
+          "id": 100002
+        }
+      ]
+    }
+  },
+  {
+    "id": 708904,
+    "name": "asset_708904",
+    "date_owned": "2019-10-29T04:06:52-07:00",
+    "price_owned": 25405,
+    "location": "location_708904",
+    "categories": {
+      "connect": [
+        {
+          "id": 100002
+        },
+        {
+          "id": 100001
+        }
+      ]
+    }
+  },
+  {
+    "id": 712696,
+    "name": "asset_712696",
+    "date_owned": "2022-10-14T12:57:44-07:00",
+    "price_owned": 15059,
+    "location": "location_712696",
+    "categories": {
+      "connect": [
+        {
+          "id": 100001
+        }
+      ]
+    }
+  },
+  {
+    "id": 798415,
+    "name": "asset_798415",
+    "date_owned": "2019-03-07T10:34:28-07:00",
+    "price_owned": 13034,
+    "location": "location_798415",
+    "categories": {
+      "connect": [
+        {
+          "id": 100001
+        },
+        {
+          "id": 100002
+        }
+      ]
+    }
+  },
+  {
+    "id": 710545,
+    "name": "asset_710545",
+    "date_owned": "2018-05-25T08:07:31-07:00",
+    "price_owned": 44499,
+    "location": "location_710545",
+    "categories": {
+      "connect": [
+        {
+          "id": 100002
+        }
+      ]
+    }
+  },
+  {
+    "id": 773631,
+    "name": "asset_773631",
+    "date_owned": "2019-11-05T02:30:20-07:00",
+    "price_owned": 49781,
+    "location": "location_773631",
+    "categories": {
+      "connect": [
+        {
+          "id": 100003
+        },
+        {
+          "id": 100002
+        }
+      ]
+    }
+  },
+  {
+    "id": 745500,
+    "name": "asset_745500",
+    "date_owned": "2021-07-28T03:35:08-07:00",
+    "price_owned": 36719,
+    "location": "location_745500",
+    "categories": {
+      "connect": [
+        {
+          "id": 100003
+        },
+        {
+          "id": 100003
+        },
+        {
+          "id": 100002
+        }
+      ]
+    }
+  },
+  {
+    "id": 705798,
+    "name": "asset_705798",
+    "date_owned": "2022-10-06T11:14:09-07:00",
+    "price_owned": 14365,
+    "location": "location_705798",
+    "categories": {
+      "connect": []
+    }
+  },
+  {
+    "id": 753676,
+    "name": "asset_753676",
+    "date_owned": "2023-01-28T03:55:31-07:00",
+    "price_owned": 27404,
+    "location": "location_753676",
+    "categories": {
+      "connect": [
+        {
+          "id": 100001
+        }
+      ]
+    }
+  },
+  {
+    "id": 760526,
+    "name": "asset_760526",
+    "date_owned": "2022-09-19T11:02:19-07:00",
+    "price_owned": 36976,
+    "location": "location_760526",
+    "categories": {
+      "connect": [
+        {
+          "id": 100001
+        },
+        {
+          "id": 100003
+        },
+        {
+          "id": 100001
+        }
+      ]
+    }
+  },
+  {
+    "id": 791250,
+    "name": "asset_791250",
+    "date_owned": "2021-03-18T08:04:10-07:00",
+    "price_owned": 33524,
+    "location": "location_791250",
+    "categories": {
+      "connect": [
+        {
+          "id": 100003
+        },
+        {
+          "id": 100002
+        }
+      ]
+    }
+  },
+  {
+    "id": 728545,
+    "name": "asset_728545",
+    "date_owned": "2021-05-19T12:30:29-07:00",
+    "price_owned": 33047,
+    "location": "location_728545",
+    "categories": {
+      "connect": [
+        {
+          "id": 100003
+        }
+      ]
+    }
+  },
+  {
+    "id": 734176,
+    "name": "asset_734176",
+    "date_owned": "2020-08-12T10:45:14-07:00",
+    "price_owned": 26413,
+    "location": "location_734176",
+    "categories": {
+      "connect": [
+        {
+          "id": 100002
+        },
+        {
+          "id": 100001
+        },
+        {
+          "id": 100001
+        }
+      ]
+    }
+  },
+  {
+    "id": 721079,
+    "name": "asset_721079",
+    "date_owned": "2018-12-21T07:34:39-07:00",
+    "price_owned": 44987,
+    "location": "location_721079",
+    "categories": {
+      "connect": [
+        {
+          "id": 100002
+        }
+      ]
+    }
+  }
+]

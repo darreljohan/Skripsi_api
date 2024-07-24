@@ -3,15 +3,17 @@ import {
   fileDeleteRequest,
   fileUploadRequest,
   fileUploadResponse,
+  fileUploadServicerResponse,
 } from "../model/file.model";
 import { UserRequest } from "../model/user.model";
-import { prismaClient } from "../application/database";
 import path from "path";
 import { logger } from "../application/logger";
 import { stringToNumberChanger } from "../utility/numberChecker";
 import * as fs from "fs";
 import { User } from "../model/user.model";
-
+import { producerClient } from "../application/producer";
+import axios from "axios";
+import { DeleteAssetPictureResponse } from "../model/asset.model";
 export class fileService {
   static async upload(
     user: User,
@@ -20,35 +22,42 @@ export class fileService {
   ): Promise<fileUploadResponse> {
     //Check id is available on database
     const checkedID = stringToNumberChanger(req.id);
-    const checker = await prismaClient.asset.findUnique({
-      where: { id: checkedID },
-      include: { categories: true, pictures: true },
-    });
 
-    if (!checker) {
-      throw new Error("Asset not found");
-    }
-
-    //Query to the database to record the filename
-    const directory = metadata!.filename;
-    const result = await prismaClient.asset.update({
-      where: { id: checkedID },
-      data: {
-        pictures: {
-          create: {
-            url: directory,
-          },
+    logger.info("Passe check id");
+    const gatewayUrl = process.env.GATEWAY_URL + "/api/assets/photo";
+    const result = await axios.post<fileUploadServicerResponse>(
+      gatewayUrl,
+      {
+        asset: {
+          id: req.id,
+        },
+        picture: {
+          url: metadata!.filename,
         },
       },
-      include: {
-        pictures: true,
-      },
-    });
+      {
+        headers: {
+          "X-API-TOKEN": user.token,
+        },
+      }
+    );
 
-    if (!result) {
-      throw new Error("Asset not found");
-    }
-    return { id: result.id, pictures: result.pictures };
+    logger.info("Passe axios ");
+    logger.info(result);
+    return { id: result.data.asset.id, pictures: result.data.pictures };
+
+    /* contact message broker
+    const directory = metadata!.filename;
+    await producerClient({
+      id: checkedID,
+      url: directory,
+    });
+    */
+
+    //revised return type
+    //return { id: result.id, pictures: result.pictures };
+
+    //return { id: checkedID, pictures: directory };
   }
 
   //send picture to preview route
@@ -58,8 +67,12 @@ export class fileService {
     return responseDirectory;
   }
 
-  static async delete(user: User, request: fileDeleteRequest): Promise<string> {
+  static async delete(
+    user: User,
+    request: fileDeleteRequest
+  ): Promise<DeleteAssetPictureResponse> {
     //Transaction for disconnect and delete relation between asset and picture
+    /* Moved into asset service
     const [deleteRelation, deleteRecord] = await prismaClient.$transaction([
       prismaClient.asset.update({
         where: { id: request.id },
@@ -73,6 +86,19 @@ export class fileService {
         where: { id: request.picture.id },
       }),
     ]);
+    */
+
+    const gatewayUrl = process.env.GATEWAY_URL + "/api/assets/photo";
+    const result = await axios.delete<DeleteAssetPictureResponse>(gatewayUrl, {
+      data: {
+        asset: {
+          id: request.id,
+        },
+        picture: {
+          id: request.picture.id,
+        },
+      },
+    });
 
     //delete file in directory
     const rootDirectory = process.cwd();
@@ -82,6 +108,6 @@ export class fileService {
     );
     fs.rm(responseDirectory, { force: true }, (e) => {});
 
-    return "Success";
+    return { id: result.data.id, pictures: result.data.pictures };
   }
 }

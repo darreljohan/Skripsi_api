@@ -30,6 +30,7 @@ export const errorMiddleware = async (
       message: error.message,
     });
   } else {
+    logger.info("Asset service- " + error.message);
     res.status(500).json({ error: error.message });
   }
 };

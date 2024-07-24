@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1721297690348" clover="3.2.0">
+  <project timestamp="1721297690349" name="All files">
+    <metrics statements="54" coveredstatements="36" conditionals="2" coveredconditionals="1" methods="18" coveredmethods="5" elements="74" coveredelements="42" complexity="0" loc="54" ncloc="54" packages="5" files="7" classes="7"/>
+    <package name="src.application">
+      <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="logger.ts" path="C:\src\Nest_Skripsi\express_micro_api\api-gateway\src\application\logger.ts">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="3" count="1" type="stmt"/>
+      </file>
+      <file name="web.ts" path="C:\src\Nest_Skripsi\express_micro_api\api-gateway\src\application\web.ts">
+        <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.middleware">
+      <metrics statements="12" coveredstatements="8" conditionals="2" coveredconditionals="1" methods="3" coveredmethods="2"/>
+      <file name="auth.middleware.ts" path="C:\src\Nest_Skripsi\express_micro_api\api-gateway\src\middleware\auth.middleware.ts">
+        <metrics statements="12" coveredstatements="8" conditionals="2" coveredconditionals="1" methods="3" coveredmethods="2"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="15" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="28" count="1" type="stmt"/>
+        <line num="35" count="0" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="37" count="0" type="stmt"/>
+        <line num="40" count="1" type="stmt"/>
+        <line num="41" count="1" type="stmt"/>
+        <line num="42" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.route">
+      <metrics statements="19" coveredstatements="14" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="0"/>
+      <file name="api.ts" path="C:\src\Nest_Skripsi\express_micro_api\api-gateway\src\route\api.ts">
+        <metrics statements="15" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="0"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="32" count="1" type="stmt"/>
+        <line num="40" count="0" type="stmt"/>
+        <line num="46" count="1" type="stmt"/>
+        <line num="53" count="0" type="stmt"/>
+        <line num="59" count="1" type="stmt"/>
+        <line num="66" count="0" type="stmt"/>
+      </file>
+      <file name="public.api.ts" path="C:\src\Nest_Skripsi\express_micro_api\api-gateway\src\route\public.api.ts">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="test">
+      <metrics statements="11" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="9" coveredmethods="2"/>
+      <file name="asset.gateway.test.util.ts" path="C:\src\Nest_Skripsi\express_micro_api\api-gateway\test\asset.gateway.test.util.ts">
+        <metrics statements="11" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="9" coveredmethods="2"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="28" count="1" type="stmt"/>
+        <line num="43" count="0" type="stmt"/>
+        <line num="55" count="0" type="stmt"/>
+        <line num="63" count="0" type="stmt"/>
+        <line num="71" count="0" type="stmt"/>
+        <line num="73" count="0" type="stmt"/>
+        <line num="80" count="0" type="stmt"/>
+        <line num="84" count="0" type="stmt"/>
+        <line num="86" count="0" type="stmt"/>
+        <line num="93" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="test.database">
+      <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="database.ts" path="C:\src\Nest_Skripsi\express_micro_api\api-gateway\test\database\database.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="47" count="1" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>

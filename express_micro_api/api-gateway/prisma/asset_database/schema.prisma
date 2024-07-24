@@ -1,0 +1,39 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../../node_modules/@prisma-asset-database/client"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("ASSET_DATABASE_URL")
+}
+
+model Asset {
+  id             Int              @id @default(autoincrement())
+  name           String           @db.VarChar(100)
+  date_owned     DateTime?
+  price_owned    Int?
+  location       String?          @db.VarChar(500)
+  categories AssetCategory[] @relation("assettoassetcategory")
+  pictures  AssetPicture[]  @relation("assettoassetpicture")
+
+  @@map("asset")
+}
+
+model AssetCategory {
+  id          Int     @id @default(autoincrement())
+  name        String  @db.VarChar(100)
+  description String? @db.VarChar(8000)
+  assets       Asset[] @relation("assettoassetcategory")
+
+   @@map("asset_category")
+}
+
+model AssetPicture {
+  id    Int     @id @default(autoincrement())
+  url   String  @db.VarChar(2083)
+  asset Asset[] @relation("assettoassetpicture")
+
+  
+  @@map("asset_picture")
+}

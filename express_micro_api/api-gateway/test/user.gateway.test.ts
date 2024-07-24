@@ -12,7 +12,6 @@ import supertest from "supertest";
 import { web } from "../src/application/web";
 import { afterThis } from "jest-after-this";
 import { logger } from "../src/application/logger";
-import { prismaClient } from "./database";
 import { UserTest } from "./user.gateway.util.test";
 
 describe("POST /api/users", () => {
@@ -56,7 +55,7 @@ describe("GET /api/users/current", () => {
       .get("/api/users/current")
       .set("X-API-TOKEN", "test");
 
-    logger.debug(response.body);
+    logger.debug(response);
     expect(response.status).toBe(200);
     expect(response.body.data.username).toBe("test");
   });

@@ -15,7 +15,8 @@ import { afterThis } from "jest-after-this";
 import { prismaClient } from "../src/application/database";
 import { newsTest } from "./news.test.util";
 import { News } from "@prisma/client";
-
+//News in development bypass auth by changing middleware method to provide user token
+//Invalid token test wont passed test because auth middleware provide user token
 describe("POST /api/news", () => {
   beforeAll(async () => {});
 

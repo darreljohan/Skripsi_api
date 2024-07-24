@@ -27,6 +27,7 @@ export class fileController {
 
   static async get(req: UserRequest, res: Response, next: NextFunction) {
     try {
+      logger.info("Enter File preview controller");
       const response = await fileService.get(req.user!, req.params.filename);
       res.status(200).sendFile(response);
     } catch (e) {

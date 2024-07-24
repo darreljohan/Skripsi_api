@@ -6,8 +6,13 @@ import { connect } from "http2";
 import { logger } from "../application/logger";
 import { stringToNumberChanger } from "../utility/numberChecker";
 import {
+  AddAssetPictureRequest,
+  AddAssetPictureResponse,
   CreateAssetRequest,
   CreateAssetResponse,
+  DeleteAssetPictureConverter,
+  DeleteAssetPictureRequest,
+  DeleteAssetPictureResponse,
   GetAssetResponse,
   assetAndCategoriesPicturesPrismaResultToAssetResponse,
   assetAndCategoriesPrismaResultToAssetResponse,
@@ -211,5 +216,80 @@ export class AssetFormattedService {
         currentPage: skip,
       },
     };
+  }
+
+  static async addPicture(
+    user: User,
+    request: AddAssetPictureRequest
+  ): Promise<AddAssetPictureResponse> {
+    logger.info("enter add picture validation");
+    logger.info(request);
+    const req = Validation.validate(
+      AssetValidationService.ADD_PICTURE,
+      request
+    );
+    const checkedID = stringToNumberChanger(req.asset.id);
+
+    logger.info("passe validation add picture");
+    logger.info(req);
+
+    const checker = await prismaClient.asset.findUnique({
+      where: { id: checkedID },
+      include: { categories: true, pictures: true },
+    });
+
+    if (!checker) {
+      throw new Error("Asset not found");
+    }
+    logger.info("passe checker add picture");
+
+    const result = await prismaClient.asset.update({
+      where: { id: checkedID },
+      data: {
+        pictures: {
+          create: {
+            url: req.picture.url,
+          },
+        },
+      },
+      include: {
+        pictures: true,
+      },
+    });
+
+    if (!result) {
+      throw new Error("Asset not found");
+    }
+
+    return result;
+  }
+
+  static async deletePicture(
+    user: User,
+    request: DeleteAssetPictureRequest
+  ): Promise<DeleteAssetPictureResponse> {
+    const validation = Validation.validate(
+      AssetValidationService.DELETE_PICTURE,
+      request
+    );
+
+    const [deleteRelation, deleteRecord] = await prismaClient.$transaction([
+      prismaClient.asset.update({
+        where: { id: validation.asset.id },
+        data: {
+          pictures: {
+            disconnect: { id: request.picture.id },
+          },
+        },
+        include: {
+          pictures: true,
+        },
+      }),
+      prismaClient.assetPicture.delete({
+        where: { id: request.picture.id },
+      }),
+    ]);
+
+    return DeleteAssetPictureConverter(deleteRelation);
   }
 }

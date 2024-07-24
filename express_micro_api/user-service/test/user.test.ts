@@ -14,6 +14,8 @@ import { logger } from "../src/application/logger";
 import { UserTest } from "./user.test.util";
 import { after } from "node:test";
 
+//Token were invalid because middleware changed from token verification into a object user verification
+//It means, middleware in users service were not handling token verification meanwhile api gateway does token verification
 describe("POST /api/users", () => {
   afterEach(async () => {
     await UserTest.delete();

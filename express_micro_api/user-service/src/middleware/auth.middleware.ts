@@ -34,12 +34,15 @@ export const authMiddleware = async (
 */
 
 //Middleware for converting header to User in UserRequest
+
 export const authMiddleware = async (
   req: UserRequest,
   res: Response,
   next: NextFunction
 ) => {
   try {
+    logger.info("Enter Auth Middleware");
+    logger.info(req);
     const userKey = req.get("user");
     const userData = JSON.parse(userKey!);
     const userValidation = Validation.validate(
@@ -47,6 +50,7 @@ export const authMiddleware = async (
       userData
     );
     req.user = userData;
+
     next();
   } catch (error) {
     res.status(401).json({

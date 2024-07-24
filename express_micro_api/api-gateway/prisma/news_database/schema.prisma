@@ -1,0 +1,25 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../../node_modules/@prisma-news-database/client"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("NEWS_DATABASE_URL")
+}
+
+model news {
+  id            Int             @id @default(autoincrement())
+  title         String          @db.VarChar(150)
+  description   String?         @db.VarChar(1000)
+  uploadDate    DateTime?
+  documentLink  String?         @db.VarChar(2083)
+  author        String          @db.VarChar(100)
+  news_category news_category[] @relation("newstonewscategory")
+}
+
+model news_category {
+  id   Int    @id @default(autoincrement())
+  name String @db.VarChar(150)
+  news news[] @relation("newstonewscategory")
+}
