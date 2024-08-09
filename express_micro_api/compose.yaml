@@ -3,31 +3,33 @@ services:
   api-gateway:
     image: node:20.14-alpine
     ports:
-      - "3000:3000"
-    volumes: -./api-gateway:/app
-    command: sh -c "npm install ; npx prisma generate; npx prisma migrate save --name init; npx prisma migrate up; npm run prod"
-  
+      - "10601:10601"
+    volumes:
+      - ./api-gateway:/app
+    working_dir: /app
+    command: sh -c "npm install ; npx prisma generate; npx prisma migrate dev ; npm run prod"
+
   news-database:
     image: mysql:8.0
     environment:
-      - MYSQL_ROOT_PASSWORD: admin
-      - MYSQL_DATABASE: news
+      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_DATABASE: news
     ports:
       - 4004:3306
 
   user-database:
     image: mysql:8.0
     environment:
-      - MYSQL_ROOT_PASSWORD: admin
-      - MYSQL_DATABASE: user
+      MYSQL_ROOT_PASSWORD: "admin"
+      MYSQL_DATABASE: "user"
     ports:
       - 4001:3306
 
   asset-database:
     image: mysql:8.0
     environment:
-      - MYSQL_ROOT_PASSWORD: admin
-      - MYSQL_DATABASE: asset
+      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_DATABASE: asset
     ports:
       - 4002:3306
 
@@ -35,27 +37,34 @@ services:
     image: node:20.14-alpine
     ports:
       - "3001:3001"
-    volumes: -./user-service:/app
-    command: sh -c "npm install ; npx prisma generate; npx prisma migrate save --name init; npx prisma migrate up; npm run prod"
+    volumes:
+      - ./user-service:/app
+    working_dir: /app
+    command: sh -c "npm install ; npx prisma generate; npx prisma migrate dev ; npm run prod"
 
   asset-service:
     image: node:20.14-alpine
     ports:
       - "3002:3002"
-    volumes: -./asset-service:/app
-    command: sh -c "npm install ; npx prisma generate; npx prisma migrate save --name init; npx prisma migrate up; npm run prod"
+    volumes:
+      - ./asset-service:/app
+    working_dir: /app
+    command: sh -c "npm install ; npx prisma generate; npx prisma migrate dev ; npm run prod"
 
   file-service:
     image: node:20.14-alpine
     ports:
       - "3003:3003"
-    volumes: -./file-service:/app
+    volumes:
+      - ./file-service:/app
+    working_dir: /app
     command: sh -c "npm install ; npm run prod"
-  
+
   news-service:
     image: node:20.14-alpine
     ports:
       - "3004:3004"
-    volumes: -./news-service:/app
-    command: sh -c "npm install ; npx prisma generate; npx prisma migrate save --name init; npx prisma migrate up; npm run prod"
-
+    volumes:
+      - ./news-service:/app
+    working_dir: /app
+    command: sh -c "npm install ; npx prisma generate; npx prisma migrate dev ; npm run prod"

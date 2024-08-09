@@ -33,18 +33,11 @@ export const authMiddleware = async (
     })
     .then((result) => {
       req.user = result.data.data.user;
-      logger.info("pass auth");
+      logger.info("Api Gateway | Auth Middleware | Auth success");
       next();
       return;
     })
     .catch((error) => {
-      logger.info("GATEWAY MIDDLEWARE ERROR - REQ");
-      res
-        .status(401)
-        .json({
-          error: "Unauthorized access",
-          message: error,
-        })
-        .end();
+      logger.error("Api Gateway | Auth Middleware | " + error.message);
     });
 };

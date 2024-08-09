@@ -19,18 +19,29 @@ export const errorMiddleware = async (
       error: `Validation Error from Zod`,
       message: JSON.stringify(error),
     });
+    logger.error(
+      "Asset Service | Error Middleware | Response Error :" + error.message
+    );
   } else if (error instanceof ResponseError) {
     res.status(error.status).json({
       error: "Response Error",
       message: error.message,
     });
+    logger.error(
+      "Asset Service | Error Middleware | Response Error :" + error.message
+    );
   } else if (error instanceof AuthError) {
     res.status(401).json({
       error: "Response Error",
       message: error.message,
     });
+    logger.error(
+      "Asset Service | Error Middleware | Response Error :" + error.message
+    );
   } else {
-    logger.info("Asset service- " + error.message);
+    logger.error(
+      "Asset Service | Error Middleware | Response Error :" + error.message
+    );
     res.status(500).json({ error: error.message });
   }
 };

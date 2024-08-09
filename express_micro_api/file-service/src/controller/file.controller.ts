@@ -37,7 +37,9 @@ export class fileController {
 
   static async delete(req: UserRequest, res: Response, next: NextFunction) {
     try {
+      logger.info("Enter File Delete Controller");
       const response = await fileService.delete(req.user!, req.body);
+      logger.info("Finishing File Delete Controller");
       res.status(200).send({ data: response });
     } catch (e) {
       next(e);

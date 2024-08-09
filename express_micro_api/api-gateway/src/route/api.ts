@@ -20,10 +20,11 @@ apiRouter.use(
     changeOrigin: true,
     on: {
       proxyReq: (proxyReq, req: UserRequest, res) => {
+        logger.info("Api Gateway | Api Route | Proxy Routing to " + req.url);
         proxyReq.setHeader("user", JSON.stringify(req.user));
       },
       error: (err, req, res) => {
-        logger.error("Proxy error:", err);
+        logger.error("Api Gateway | Api Route | Proxy error: " + err.message);
       },
     },
   })
@@ -38,7 +39,10 @@ apiRouter.use(
     on: {
       proxyReq: (proxyReq, req: UserRequest, res) => {
         proxyReq.setHeader("user", JSON.stringify(req.user));
-        logger.info("enter proxy assets");
+        logger.info("Api Gateway | Api Route | Proxy Routing to " + req.url);
+      },
+      error: (err, req, res) => {
+        logger.error("Api Gateway | Api Route | Proxy error: " + err.message);
       },
     },
   })
@@ -51,9 +55,11 @@ apiRouter.use(
     changeOrigin: true,
     on: {
       proxyReq: (proxyReq, req: UserRequest, res) => {
-        logger.info("Enter Proxy set header success");
         proxyReq.setHeader("user", JSON.stringify(req.user));
-        logger.info("Proxy set header success");
+        logger.info("Api Gateway | Api Route | Proxy Routing to " + req.url);
+      },
+      error: (err, req, res) => {
+        logger.error("Api Gateway | Api Route | Proxy error: " + err.message);
       },
     },
   })
@@ -67,6 +73,10 @@ apiRouter.get(
     on: {
       proxyReq: (proxyReq, req: UserRequest, res) => {
         proxyReq.setHeader("user", JSON.stringify(req.user));
+        logger.info("Api Gateway | Api Route | Proxy Routing to " + req.url);
+      },
+      error: (err, req, res) => {
+        logger.error("Api Gateway | Api Route | Proxy error: " + err.message);
       },
     },
   })

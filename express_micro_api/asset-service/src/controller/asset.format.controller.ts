@@ -15,6 +15,7 @@ export class AssetFormatController {
       const request: CreateAssetRequest = req.body as CreateAssetRequest;
       const response = await AssetFormattedService.create(req.user!, request);
       res.status(200).json({ data: response });
+      logger.info("Asset Service | Asset Controller | Response sent");
     } catch (e) {
       next(e);
     }
@@ -27,6 +28,7 @@ export class AssetFormatController {
         req.params.asset
       );
       res.status(200).json({ data: response });
+      logger.info("Asset Service | Asset Controller | Response sent");
     } catch (e) {
       next(e);
     }
@@ -37,6 +39,7 @@ export class AssetFormatController {
       const request: CreateAssetRequest = req.body as CreateAssetRequest;
       const response = await AssetFormattedService.update(req.user!, request);
       res.status(200).json({ data: response });
+      logger.info("Asset Service | Asset Controller | Response sent");
     } catch (e) {
       next(e);
     }
@@ -49,6 +52,7 @@ export class AssetFormatController {
         req.params.asset
       );
       res.status(200).json({ data: response });
+      logger.info("Asset Service | Asset Controller | Response sent");
     } catch (e) {
       next(e);
     }
@@ -59,6 +63,7 @@ export class AssetFormatController {
       const request: searchAssetRequest = req.body as searchAssetRequest;
       const response = await AssetFormattedService.search(req.user!, request);
       res.status(200).json(response);
+      logger.info("Asset Service | Asset Controller | Response sent");
     } catch (e) {
       next(e);
     }
@@ -72,7 +77,9 @@ export class AssetFormatController {
         req.body as AddAssetPictureRequest
       );
       res.status(200).json({ data: response });
+      logger.info("Asset Service | Asset Controller | Response sent");
     } catch (e) {
+      logger.info("add picture query failed");
       next(e);
     }
   }
@@ -88,6 +95,7 @@ export class AssetFormatController {
         req.body as DeleteAssetPictureRequest
       );
       res.status(200).json({ data: response });
+      logger.info("Asset Service | Asset Controller | Response sent");
     } catch (e) {
       next(e);
     }

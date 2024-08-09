@@ -54,6 +54,10 @@ export const options = {
 // about authoring k6 scripts.
 //
 export default function () {
-  http.get("http://localhost:3333/api/asset/10000");
+  http.get("http://localhost:10601/api/assets/format/1", {
+    headers: {
+      "X-API-TOKEN": "e8cf4f73-5664-44b4-8081-309e7bcdbbc1",
+    },
+  });
   //sleep(1);
 }

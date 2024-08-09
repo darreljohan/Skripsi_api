@@ -13,19 +13,22 @@ import * as fs from "fs";
 import { User } from "../model/user.model";
 import { producerClient } from "../application/producer";
 import axios from "axios";
-import { DeleteAssetPictureResponse } from "../model/asset.model";
+import {
+  AddAssetPictureResponse,
+  DeleteAssetPictureResponse,
+} from "../model/asset.model";
 export class fileService {
   static async upload(
     user: User,
     metadata: Express.Multer.File | undefined,
     req: fileUploadRequest
-  ): Promise<fileUploadResponse> {
+  ): Promise<AddAssetPictureResponse> {
     //Check id is available on database
     const checkedID = stringToNumberChanger(req.id);
 
     logger.info("Passe check id");
     const gatewayUrl = process.env.GATEWAY_URL + "/api/assets/photo";
-    const result = await axios.post<fileUploadServicerResponse>(
+    const result = await axios.post<any>(
       gatewayUrl,
       {
         asset: {
@@ -43,8 +46,12 @@ export class fileService {
     );
 
     logger.info("Passe axios ");
-    logger.info(result);
-    return { id: result.data.asset.id, pictures: result.data.pictures };
+    logger.info(result.data);
+
+    return {
+      id: result.data.data.asset.id,
+      pictures: result.data.data.pictures,
+    };
 
     /* contact message broker
     const directory = metadata!.filename;
@@ -90,6 +97,9 @@ export class fileService {
 
     const gatewayUrl = process.env.GATEWAY_URL + "/api/assets/photo";
     const result = await axios.delete<DeleteAssetPictureResponse>(gatewayUrl, {
+      headers: {
+        "X-API-TOKEN": user.token,
+      },
       data: {
         asset: {
           id: request.id,
@@ -99,7 +109,7 @@ export class fileService {
         },
       },
     });
-
+    logger.info("finish sending delete command to asset service");
     //delete file in directory
     const rootDirectory = process.cwd();
     const responseDirectory = path.join(

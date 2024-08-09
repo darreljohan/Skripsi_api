@@ -85,7 +85,7 @@ export type AddAssetPictureRequest = {
 };
 
 export type AddAssetPictureResponse = {
-  id: number;
+  asset: Asset;
   pictures: AssetPicture[];
 };
 
@@ -110,6 +110,21 @@ export const assetWithPictures = Prisma.validator<Prisma.AssetDefaultArgs>()({
 export type AssetWithPictures = Prisma.AssetGetPayload<
   typeof assetWithPictures
 >;
+
+export function assetAndPicturesPrismaResultToAssetResponse(
+  result: AssetWithPictures
+): AddAssetPictureResponse {
+  return {
+    asset: {
+      id: result.id,
+      name: result.name,
+      date_owned: result.date_owned,
+      price_owned: result.price_owned,
+      location: result.location,
+    },
+    pictures: result.pictures,
+  };
+}
 
 export function DeleteAssetPictureConverter(
   result: AssetWithPictures

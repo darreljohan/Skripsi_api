@@ -16,6 +16,7 @@ import {
   GetAssetResponse,
   assetAndCategoriesPicturesPrismaResultToAssetResponse,
   assetAndCategoriesPrismaResultToAssetResponse,
+  assetAndPicturesPrismaResultToAssetResponse,
   searchAssetRequest,
 } from "../model/asset.format.model";
 import { Pageable } from "../model/page.model";
@@ -261,7 +262,9 @@ export class AssetFormattedService {
       throw new Error("Asset not found");
     }
 
-    return result;
+    logger.info("Asset-service-addPicture: Query result: ");
+    logger.info(assetAndPicturesPrismaResultToAssetResponse(result));
+    return assetAndPicturesPrismaResultToAssetResponse(result);
   }
 
   static async deletePicture(
