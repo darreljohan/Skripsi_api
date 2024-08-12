@@ -1,0 +1,18 @@
+version: "1"
+services:
+  api-gateway:
+    image: node:20.14-alpine
+    ports:
+      - "10601:10601"
+    volumes:
+      - ./
+    working_dir: /app
+    command: sh -c "npm install ; npx prisma generate; npx prisma migrate dev ; npm run prod"
+
+  database:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_DATABASE: skripsi_mono
+    ports:
+      - 4004:3306
