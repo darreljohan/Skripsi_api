@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prod": "npx ts-node -r dotenv/config src/application/web.ts --watch "
+    "prod": "npx ts-node -r dotenv/config src/application/web.ts --watch --transpile-only"
   },
   "keywords": [],
   "author": "",
