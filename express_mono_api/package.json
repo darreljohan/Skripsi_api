@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest",
     "dev": "nodemon src/application/web.ts",
-    "prod": "npx ts-node -r dotenv/config src/application/web.ts --watch "
+    "prod": "npx ts-node -r dotenv/config src/application/web.ts --watch --transpile-only"
   },
   "author": "",
   "license": "ISC",
