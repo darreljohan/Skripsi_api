@@ -5,14 +5,14 @@ import { textSummary } from "https://jslib.k6.io/k6-summary/0.0.1/index.js";
 
 const mockFile = open("./mock-file.jpg", "b");
 
-const API_URL = "http://54.254.214.239:80/api/file";
+const API_URL = "http://18.141.237.238:80/api/file";
 const HEADER = {
   headers: {
-    "X-API-TOKEN": "c376558a-a694-4d34-8d1f-bfa79580158f",
+    "X-API-TOKEN": "b63d314c-ad54-4059-8e78-680e0ac5bd58",
   },
 };
 const DATA = {
-  id: 1,
+  id: 2,
   file: http.file(mockFile, "mocking.jpg"),
 };
 
