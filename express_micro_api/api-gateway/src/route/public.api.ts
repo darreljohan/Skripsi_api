@@ -4,7 +4,7 @@ import { logger } from "../application/logger";
 
 export const publicRouter = express.Router();
 
-const USER_SERVICE_URL = "http://host.docker.internal:3001";
+const USER_SERVICE_URL = "http://user-service:3001";
 
 publicRouter.post(
   "/api/users",

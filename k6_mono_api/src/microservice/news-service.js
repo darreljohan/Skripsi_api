@@ -3,10 +3,10 @@ import { check, sleep } from "k6";
 import { Trend } from "k6/metrics";
 import { textSummary } from "https://jslib.k6.io/k6-summary/0.0.1/index.js";
 
-const API_URL = "http://localhost:10601/api/news";
+const API_URL = "http://54.254.214.239:80/api/news";
 const HEADER = {
   headers: {
-    "X-API-TOKEN": "e8cf4f73-5664-44b4-8081-309e7bcdbbc1",
+    "X-API-TOKEN": "0554d048-55ce-4212-96b5-807b15790bca",
   },
 };
 const DATA = {
@@ -17,24 +17,12 @@ const DATA = {
 
 export const options = {
   stages: [
-    { duration: "1s", target: 100 },
-    { duration: "1m", target: 100 },
-    { duration: "1m", target: 200 },
-    { duration: "1m", target: 200 },
-    { duration: "1m", target: 300 },
-    { duration: "1m", target: 300 },
-    { duration: "1m", target: 400 },
-    { duration: "1m", target: 400 },
-    { duration: "1m", target: 500 },
-    { duration: "1m", target: 500 },
-    { duration: "1m", target: 600 },
-    { duration: "1m", target: 600 },
-    { duration: "1m", target: 700 },
-    { duration: "1m", target: 700 },
-    { duration: "1m", target: 800 },
-    { duration: "1m", target: 800 },
-    { duration: "1m", target: 900 },
-    { duration: "1m", target: 900 },
+    { duration: "50s", target: 10 },
+    { duration: "50s", target: 10 },
+    { duration: "50s", target: 50 },
+    { duration: "50s", target: 50 },
+    { duration: "50s", target: 100 },
+    { duration: "50s", target: 100 },
   ],
   // Output results to CSV
 };
