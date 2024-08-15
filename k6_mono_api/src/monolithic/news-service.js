@@ -35,5 +35,4 @@ export default function () {
   check(response, {
     "is status 200": (r) => r.status === 200,
   });
-  sleep(0.5);
 }

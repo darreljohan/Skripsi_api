@@ -12,18 +12,28 @@ const HEADER = {
   },
 };
 const DATA = {
-  id: 2,
+  id: 3,
   file: http.file(mockFile, "mocking.jpg"),
 };
 
 export const options = {
+  cloud: {
+    // Project: Load Testing
+    projectID: 3709569,
+    // Test runs with the same name groups test runs together.
+    name: "Micro File",
+  },
   stages: [
-    { duration: "50s", target: 10 },
-    { duration: "50s", target: 10 },
-    { duration: "50s", target: 50 },
-    { duration: "50s", target: 50 },
-    { duration: "50s", target: 100 },
-    { duration: "50s", target: 100 },
+    { duration: "2ms", target: 20 },
+    { duration: "90s", target: 20 },
+    { duration: "2ms", target: 40 },
+    { duration: "90s", target: 40 },
+    { duration: "2ms", target: 60 },
+    { duration: "90s", target: 60 },
+    { duration: "2ms", target: 80 },
+    { duration: "90s", target: 80 },
+    { duration: "2ms", target: 100 },
+    { duration: "90s", target: 100 },
   ],
   // Output results to CSV
 };
@@ -36,5 +46,4 @@ export default function () {
   check(response, {
     "is status 200": (r) => r.status === 200,
   });
-  sleep(1);
 }
