@@ -3,7 +3,7 @@ import { check, sleep } from "k6";
 import { Trend } from "k6/metrics";
 import { textSummary } from "https://jslib.k6.io/k6-summary/0.0.1/index.js";
 
-const API_URL = "http://13.228.170.146:80/api/assets/format/4";
+const API_URL = "http://13.212.240.226:80/api/assets/format/5";
 const HEADER = {
   headers: {
     "X-API-TOKEN": "b63d314c-ad54-4059-8e78-680e0ac5bd58",
@@ -15,7 +15,7 @@ export const options = {
     // Project: Load Testing
     projectID: 3709926,
     // Test runs with the same name groups test runs together.
-    name: "Micro Asset",
+    name: "Micro Asset Repeat",
   },
   stages: [
     { duration: "2ms", target: 20 },

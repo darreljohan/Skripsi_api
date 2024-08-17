@@ -3,7 +3,7 @@ import { check, sleep } from "k6";
 import { Trend } from "k6/metrics";
 import { textSummary } from "https://jslib.k6.io/k6-summary/0.0.1/index.js";
 
-const API_URL = "http://13.212.216.51:80/api/assets/format/7";
+const API_URL = "http://54.254.255.57:80/api/assets/format/8";
 const HEADER = {
   headers: {
     "X-API-TOKEN": "f7adaaee-c627-449d-82ca-488cf1a05236",
@@ -15,7 +15,7 @@ export const options = {
     // Project: Load Testing
     projectID: 3709926,
     // Test runs with the same name groups test runs together.
-    name: "Mono Asset",
+    name: "Mono Asset Repeat",
   },
   stages: [
     { duration: "2ms", target: 20 },
