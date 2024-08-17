@@ -12,28 +12,28 @@ const HEADER = {
   },
 };
 const DATA = {
-  id: 3,
+  id: 4,
   file: http.file(mockFile, "mocking.jpg"),
 };
 
 export const options = {
   cloud: {
     // Project: Load Testing
-    projectID: 3709569,
+    projectID: 3709926,
     // Test runs with the same name groups test runs together.
     name: "Micro File",
   },
   stages: [
     { duration: "2ms", target: 20 },
-    { duration: "90s", target: 20 },
+    { duration: "120s", target: 20 },
     { duration: "2ms", target: 40 },
-    { duration: "90s", target: 40 },
+    { duration: "120s", target: 40 },
     { duration: "2ms", target: 60 },
-    { duration: "90s", target: 60 },
+    { duration: "120s", target: 60 },
     { duration: "2ms", target: 80 },
-    { duration: "90s", target: 80 },
+    { duration: "120s", target: 80 },
     { duration: "2ms", target: 100 },
-    { duration: "90s", target: 100 },
+    { duration: "120s", target: 100 },
   ],
   // Output results to CSV
 };
