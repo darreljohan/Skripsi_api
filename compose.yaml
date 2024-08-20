@@ -10,7 +10,7 @@ services:
     environment:
       DATABASE_URL: mysql://root:admin@database:4004/skripsi_mono
       MONO_PORT: 10601
-    command: sh -c "npm install ; npx prisma generate; npx prisma migrate dev ; npm run prod"
+    command: sh -c "npm install; npx prisma generate; npx prisma migrate dev ; npm run prod"
 
   database:
     image: mysql:8.0
@@ -18,5 +18,5 @@ services:
       MYSQL_ROOT_PASSWORD: admin
       MYSQL_DATABASE: skripsi_mono
     ports:
-      - 4004:3306
-    command: --port=3306
+      - 4004:4004
+    command: --port=4004

@@ -3,31 +3,41 @@ import { check, sleep } from "k6";
 import { Trend } from "k6/metrics";
 import { textSummary } from "https://jslib.k6.io/k6-summary/0.0.1/index.js";
 
-const API_URL = "http://54.169.110.232:80/api/users/current";
+const API_URL = "http://172.31.32.226:80/api/users/current";
 const HEADER = {
   headers: {
-    "X-API-TOKEN": "f7adaaee-c627-449d-82ca-488cf1a05236",
+    "X-API-TOKEN": "35984731-1ff3-43aa-bf9c-84c375ab4978",
   },
 };
 
 export const options = {
   cloud: {
     // Project: Load Testing
-    projectID: 3709926,
+    projectID: 3710305,
     // Test runs with the same name groups test runs together.
     name: "Mono User",
   },
   stages: [
+    { duration: "2ms", target: 10 },
+    { duration: "300s", target: 10 },
     { duration: "2ms", target: 20 },
-    { duration: "120s", target: 20 },
+    { duration: "300s", target: 20 },
+    { duration: "2ms", target: 30 },
+    { duration: "300s", target: 30 },
     { duration: "2ms", target: 40 },
-    { duration: "120s", target: 40 },
+    { duration: "300s", target: 40 },
+    { duration: "2ms", target: 50 },
+    { duration: "300s", target: 50 },
     { duration: "2ms", target: 60 },
-    { duration: "120s", target: 60 },
+    { duration: "300s", target: 60 },
+    { duration: "2ms", target: 70 },
+    { duration: "300s", target: 70 },
     { duration: "2ms", target: 80 },
-    { duration: "120s", target: 80 },
+    { duration: "300s", target: 80 },
+    { duration: "2ms", target: 90 },
+    { duration: "300s", target: 90 },
     { duration: "2ms", target: 100 },
-    { duration: "120s", target: 100 },
+    { duration: "300s", target: 100 },
   ],
   // Output results to CSV
 };
@@ -40,5 +50,5 @@ export default function () {
   check(response, {
     "is status 200": (r) => r.status === 200,
   });
-  sleep(0.5);
+  sleep(1);
 }

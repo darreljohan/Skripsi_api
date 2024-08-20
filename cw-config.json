@@ -1,0 +1,26 @@
+{
+  "agent": {
+    "metrics_collection_interval": 10,
+    "run_as_user": "root"
+  },
+  "metrics": {
+    "namespace": "mono-low-metric",
+    "metrics_collected": {
+      "cpu": {
+        "measurement": [
+          "cpu_usage_user",
+          "cpu_usage_system",
+          "cpu_usage_total"
+        ],
+        "totalcpu": true
+      },
+      "disk": {
+        "measurement": ["disk_used", "disk_io_time"],
+        "resources": ["*"]
+      },
+      "mem": {
+        "measurement": ["mem_used_percent", "mem_total", "mem_used"]
+      }
+    }
+  }
+}
