@@ -29,3 +29,12 @@ sudo apt-get install -f
 sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a start -m ec2 -c file:/cw-config.json
 
 sudo iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 10601
+
+## Micro
+sudo mkdir -p /opt/aws/amazon-cloudwatch-agent/etc/
+sudo cp config-micro.json /opt/aws/amazon-cloudwatch-agent/etc/amazon-cloudwatch-agent.json
+
+##Mono
+sudo mkdir -p /opt/aws/amazon-cloudwatch-agent/etc/
+sudo cp config-mono.json /opt/aws/amazon-cloudwatch-agent/etc/amazon-cloudwatch-agent.json
+
