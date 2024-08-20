@@ -6,7 +6,7 @@ import { textSummary } from "https://jslib.k6.io/k6-summary/0.0.1/index.js";
 const API_URL = "http://172.31.32.226:80/api/users/current";
 const HEADER = {
   headers: {
-    "X-API-TOKEN": "35984731-1ff3-43aa-bf9c-84c375ab4978",
+    "X-API-TOKEN": "05b78fde-537e-4d0b-b866-4e9ce95bb87d",
   },
 };
 

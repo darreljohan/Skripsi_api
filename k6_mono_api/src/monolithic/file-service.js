@@ -5,35 +5,45 @@ import { textSummary } from "https://jslib.k6.io/k6-summary/0.0.1/index.js";
 
 const mockFile = open("./mock-file.jpg", "b");
 
-const API_URL = "http://54.169.110.232:80/api/file";
+const API_URL = "http://172.31.47.0:80/api/file";
 const HEADER = {
   headers: {
-    "X-API-TOKEN": "f7adaaee-c627-449d-82ca-488cf1a05236",
+    "X-API-TOKEN": "05b78fde-537e-4d0b-b866-4e9ce95bb87d",
   },
 };
 const DATA = {
-  id: 9,
+  id: 2,
   file: http.file(mockFile, "mocking.jpg"),
 };
 
 export const options = {
   cloud: {
     // Project: Load Testing
-    projectID: 3709926,
+    projectID: 3710305,
     // Test runs with the same name groups test runs together.
-    name: "Mono File",
+    name: "Mono file",
   },
   stages: [
+    { duration: "2ms", target: 10 },
+    { duration: "300s", target: 10 },
     { duration: "2ms", target: 20 },
-    { duration: "120s", target: 20 },
+    { duration: "300s", target: 20 },
+    { duration: "2ms", target: 30 },
+    { duration: "300s", target: 30 },
     { duration: "2ms", target: 40 },
-    { duration: "120s", target: 40 },
+    { duration: "300s", target: 40 },
+    { duration: "2ms", target: 50 },
+    { duration: "300s", target: 50 },
     { duration: "2ms", target: 60 },
-    { duration: "120s", target: 60 },
+    { duration: "300s", target: 60 },
+    { duration: "2ms", target: 70 },
+    { duration: "300s", target: 70 },
     { duration: "2ms", target: 80 },
-    { duration: "120s", target: 80 },
+    { duration: "300s", target: 80 },
+    { duration: "2ms", target: 90 },
+    { duration: "300s", target: 90 },
     { duration: "2ms", target: 100 },
-    { duration: "120s", target: 100 },
+    { duration: "300s", target: 100 },
   ],
   // Output results to CSV
 };
@@ -46,5 +56,5 @@ export default function () {
   check(response, {
     "is status 200": (r) => r.status === 200,
   });
-  sleep(0.5);
+  sleep(1);
 }
