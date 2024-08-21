@@ -3,10 +3,10 @@ import { check, sleep } from "k6";
 import { Trend } from "k6/metrics";
 import { textSummary } from "https://jslib.k6.io/k6-summary/0.0.1/index.js";
 
-const API_URL = "http://172.31.34.226:80/api/users/current";
+const API_URL = "http://172.31.39.255:80/api/users/current";
 const HEADER = {
   headers: {
-    "X-API-TOKEN": "da8a4d23-1559-4afc-aa1c-e08da5fb1a75",
+    "X-API-TOKEN": "1c936f8e-0048-4550-a119-b8ce5e0a11f7",
   },
 };
 

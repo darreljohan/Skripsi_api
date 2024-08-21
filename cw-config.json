@@ -4,7 +4,7 @@
     "run_as_user": "root"
   },
   "metrics": {
-    "namespace": "mono-low-metric",
+    "namespace": "micro-low-metric",
     "metrics_collected": {
       "cpu": {
         "measurement": [
