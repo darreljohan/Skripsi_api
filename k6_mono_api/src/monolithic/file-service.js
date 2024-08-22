@@ -12,16 +12,16 @@ const HEADER = {
   },
 };
 const DATA = {
-  id: 1,
+  id: 2,
   file: http.file(mockFile, "mocking.jpg"),
 };
 
 export const options = {
   cloud: {
     // Project: Load Testing
-    projectID: 3710305,
+    projectID: 3710449,
     // Test runs with the same name groups test runs together.
-    name: "Mono file",
+    name: "Mono file Retest",
   },
   stages: [
     { duration: "2ms", target: 10 },
